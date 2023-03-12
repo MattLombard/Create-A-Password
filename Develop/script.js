@@ -58,7 +58,6 @@ function generatePassword() {
   }
   // Returns the generated password
   return password;
-
 }
 
 // Write password to the #password input
