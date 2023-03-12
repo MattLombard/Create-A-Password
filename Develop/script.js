@@ -45,7 +45,10 @@ function generatePassword() {
   if (hasSpecial) {
     passwordCharacters += specialChar
   }
-
+  //Check if the user selected at least one character type for the password
+  if (passwordCharacters === "")
+  alert("You must select at least one character type for your password")
+  return null;
 }
 
 
