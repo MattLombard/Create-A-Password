@@ -13,15 +13,15 @@ function generatePassword() {
   var passwordLength = parseInt(prompt("Please type a number between 8 and 128: "))
   // if they do not input a number, the alert will pop up and return null
   if (isNaN(passwordLength)) {
-    alert("Must input a number")
+    alert("Must input a number");
     return null;
   }
-// if they input a number outside of the range, alert will pop up and return null
+  // if they input a number outside of the range, alert will pop up and return null
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Please enter a valid number! ")
     return null;
   }
-// Confirm-  ask the user if they want lowercase, uppercse, numbers and special characters in the password
+  // Confirm-  ask the user if they want lowercase, uppercse, numbers and special characters in the password
   var hasLower = confirm("Do you want lowercase letters in your password? ")
   var hasUpper = confirm("Do you want uppercase letters in your password? ")
   var hasNumbers = confirm("Do you want numbers in your password? ")
@@ -30,31 +30,36 @@ function generatePassword() {
   // Creates a string to store the characters that will be used in the password
   var passwordCharacters = ""
   //Adds the characters for each type of character selected to the passwordCharacters string
-  if (lowercaseChar) {
+  if (hasLower) {
     passwordCharacters += lowercaseChar;
   }
 
   if (hasUpper) {
-    passwordCharacters += uppercaseChar
+    passwordCharacters += uppercaseChar;
   }
 
-  if (hasNum) {
-    passwordCharacters += numberChar
+  if (hasNumbers) {
+    passwordCharacters += numberChar;
   }
 
   if (hasSpecial) {
-    passwordCharacters += specialChar
+    passwordCharacters += specialChar;
   }
   //Check if the user selected at least one character type for the password
-  if (passwordCharacters === "")
-  alert("You must select at least one character type for your password")
-  return null;
+  if (passwordCharacters === "") {
+    alert("You must select at least one character type for your password");
+    return null;
+  }
+  // Generates a randome password using the chosen characters and chosen length
+  var password = "";
+
+  for (var i = 0; i < passwordLength; i++) {
+    password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+  }
+  // Returns the generated password
+  return password;
+
 }
-
-
-
-
-
 
 // Write password to the #password input
 function writePassword() {
