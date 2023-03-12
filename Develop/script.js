@@ -21,6 +21,30 @@ function generatePassword() {
     alert("Please enter a valid number! ")
     return null;
   }
+// Confirm-  ask the user if they want lowercase, uppercse, numbers and special characters in the password
+  var hasLower = confirm("Do you want lowercase letters in your password? ")
+  var hasUpper = confirm("Do you want uppercase letters in your password? ")
+  var hasNumbers = confirm("Do you want numbers in your password? ")
+  var hasSpecial = confirm("Do you want special characters in your password?")
+
+  // Creates a string to store the characters that will be used in the password
+  var passwordCharacters = ""
+  //Adds the characters for each type of character selected to the passwordCharacters string
+  if (lowercaseChar) {
+    passwordCharacters += lowercaseChar;
+  }
+
+  if (hasUpper) {
+    passwordCharacters += uppercaseChar
+  }
+
+  if (hasNum) {
+    passwordCharacters += numberChar
+  }
+
+  if (hasSpecial) {
+    passwordCharacters += specialChar
+  }
 
 }
 
